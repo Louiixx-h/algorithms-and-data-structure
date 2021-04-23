@@ -18,5 +18,8 @@ c = a+b
 ```
 Neste exemplo podemos calcular a complexidade de espaço pelo número de variáveis declarada.
 
-
 `Ex.: 1+1+1 - Complexidade de espaço`
+
+Em termos de complexidade de tempo pode ser calculada pelo número de operações que no caso só temos uma operação.
+
+`Ex.: 1 - Complexidade de tempo`
