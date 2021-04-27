@@ -30,5 +30,5 @@ Ou Seja, um algoritmo bem feito vai rodar todas as ações muito mais otimizado 
 
 Listas são uma estrutura de dados que guarda dados sequencialmente, onde podemos fazer algumas ações para buscar por um dado, remover dados, acrescentar dados e etc.
 
-<img src="./images/lista.png" />
+<img src="./images/lista.png" width="300"/>
 
