@@ -33,3 +33,15 @@ Listas são uma estrutura de dados que guarda dados sequencialmente, onde podemo
 <img src="./images/lista.png" width="300"/>
 
 Uma lista é armazenada sequencialmente na memória, caso essa lista seja de um tipo que ocupe 3 Bytes cada casa dessa lista será alocada de 3 em 3 Bytes na memória, isso para listas que tenham o mesmo tipo. Já para listas que contenha vários tipos diferentes dentro dela como inteiros, string, booleanos e etc, será um pouco diferente para alocar essa lista, pois como tem tipos diferentes terá tamanhos em Bytes diferentes e não será possível calcular a próxima casa da lista então para solucionar isso a lista usará `ponteiro` que é um tipo de valor assim como inteiro ou string em vez de usar o valor direto, com o ponteiro cada casa apontará para um endereço da memória que fica armazenado o valor referente aquela casa da lista.
+
+## Busca em uma lista
+
+Frequentemente quando estamos programando precisamos fazer buscas em listas e para isso existe alguns algoritmos para se fazer essa busca.
+
+### Busca Linear
+
+A busca linear em lista consiste em verificar cada índice da lista de 1 a 1, ou seja se estamos procurando o valor 46 na lista precisamos passar de índice por índice começando de 0. Esse algoritmo é eficiente em listas não ordenadas mas dependendo do tamanho da lista pode executar muitos passos até que chegue no valor desejado. A complexidade desse algoritmo é de 2*N+1 por isso é chamado de busca linear.
+
+### Busca Binária
+
+A busca binária cai muito bem para uma lista ordenada pois esse é um fator muito importante para que seja aplicada corretamente. Ela é feita da seguinte maneira em uma lista ordenada de 47 índices onde procuramos o valor 25 então em vez de começar do índice 0 podemos começar pela metade da lista então comparamos o valor do índice da metade da lista se esse valor for menor que 25 então descartamos a metade da lista que é anterior a aquele índice específico já que será tudo menor que 25 então podemos continuar nossa lógica pulando de metade e descartando metade que não nos interessa até encontrar-mos o valor que queremos.
