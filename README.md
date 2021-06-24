@@ -1,4 +1,4 @@
-# Python Beginner
+# Estrutura de Dados
 ## Algoritmos
 
 Algoritmos são os passo a passo que levamos para escrever um programa. Os algoritmos usam dos recursos computacionais para realizar certo passo a passo, esses recursos computacionais são conhecidos como memória e CPU. Para cada problema existe vários tipos de algoritmos que podem soluciona-lo por isso existe um cálculo de complexidade para calcular qual algoritmo tem o melhor desempenho e o menor consumo de recursos computacionais.
