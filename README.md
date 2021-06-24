@@ -11,10 +11,10 @@ Algoritmos são os passo a passo que levamos para escrever um programa. Os algor
 **Complexidade de tempo:**
 É relativo a quantidade de operações que estão sendo realizadas.
 
-```
-a = 5
-b = 4
-c = a+b
+```js
+const a = 5
+const b = 4
+const c = a+b
 ```
 Neste exemplo podemos calcular a complexidade de espaço pelo número de variáveis declarada.
 
