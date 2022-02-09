@@ -2,11 +2,14 @@ package br.com.lhdesenvolvimentos.vetor;
 
 import java.util.Scanner;
 
+import br.com.lhdesenvolvimentos.utils.Print;
+
 /**
  * BuscaLinear
  */
 public class BuscaLinear {
     
+    private Scanner scan = new Scanner(System.in);
     private String[] states = new String[] {
         "AC",
         "BA",
@@ -19,22 +22,22 @@ public class BuscaLinear {
         "MA",
         "GO",
     };
-    private Scanner scan = new Scanner(System.in);
 
     public void start() {
-        System.out.println("\n-> Busca Linear");
+        Print.newLine("\n-> Busca Linear");
 
         for (String st : states) {
-            System.out.println("-> " + st);
+            Print.newLine("-> " + st);
         }
 
-        System.out.println("\n-> Digite o estado que você quer procurar:");
+        Print.onLine("\n-> Digite o estado que você quer procurar: ");
         String stateSelected = scan.nextLine();
-        buscaLinear(stateSelected);
+        checkIfStateExists(stateSelected);
     }
 
-    private void buscaLinear(String state) {
+    public boolean checkIfStateExists(String state) {
         String stateFound = "";
+
         for (String st : states) {
             if(st.trim().toLowerCase().equals(state.toLowerCase().trim())) {
                 stateFound = state;
@@ -42,9 +45,11 @@ public class BuscaLinear {
             }
         }
         if(stateFound.equals(state)) {
-            System.out.println("O Estado foi encontrado!");
+            Print.newLine("O Estado foi encontrado!");
+            return true;
         } else {
-            System.out.println("O Estado não foi encontrado!");
+            Print.newLine("O Estado não foi encontrado!");
+            return false;
         }
     }
 }
