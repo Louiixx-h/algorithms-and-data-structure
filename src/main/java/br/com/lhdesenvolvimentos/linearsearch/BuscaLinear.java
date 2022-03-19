@@ -1,4 +1,4 @@
-package br.com.lhdesenvolvimentos.vetor;
+package br.com.lhdesenvolvimentos.linearsearch;
 
 import java.util.Scanner;
 
