@@ -5,34 +5,35 @@ import java.util.List;
 
 public class Queue<T> {
 
-    int first = 0;
-    int last = 0;
-    int total = 0;
-    int size;
+    T first;
+    T last;
+    int total;
     List<T> items;
 
-    public Queue(int size) {
-        this.size = size;
+    public Queue(int sizeMax) {
+        this.total = sizeMax;
         this.items = new ArrayList<>();
     }
 
     public void add(T value) {
-        if (isFull()) {
-            items.remove(first);
-            items.add(value);
-            if (first == size-1) {
-                first = 0;
-                return;
+        try {
+            if (isFull()) {
+                throw new Exception("A fila já está no seu limite!");
             }
-            first++;
+        } catch (Exception e) {
+            e.printStackTrace();
             return;
         }
-        items.add(value);
-        total = items.size();
-        last = total-1;
-        if (total == 1) {
-            first = 0;
+
+        if(isEmpty()) {
+            items.add(value);
+            first = value;
+            last = value;
+            return;
         }
+
+        items.add(value);
+        last = value;
     }
 
     public void remove() {
@@ -41,20 +42,46 @@ public class Queue<T> {
                 throw new Exception("A fila está vazia!");
             }
 
-            items.remove(last);
-            total = items.size();
-            last = items.size()-1;
+            items.remove(first);
+            first = items.get(0);
+
+            if(items.size() == 1) {
+                last = first;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    public T get(int index) {
+        T item = null;
+        try {
+            if(index > items.size()-1 || index < 0) {
+                throw new Exception("Index fora do limite da lista!");
+            }
+            
+            item = items.get(index);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        return item;
+    }
+
+    public T getFirst() {
+        return first;
+    }
+
+    public T getLast() {
+        return last;
+    }
+
     public boolean isFull() {
-        return total == size;
+        return total == items.size();
     }
 
     public boolean isEmpty() {
-        return total == 0;
+        return items.isEmpty();
     }
 
     @Override
@@ -62,11 +89,13 @@ public class Queue<T> {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("Queue[");
         int i = 0;
-        while (i <= total-1) {
+
+        while (i < items.size()) {
             stringBuilder.append(items.get(i));
-            i++;
-            if (i==total) stringBuilder.append("]");
+            
+            if (i==items.size()-1) stringBuilder.append("]");
             else stringBuilder.append(", ");
+            i++;
         }
         return stringBuilder.toString();
     }
