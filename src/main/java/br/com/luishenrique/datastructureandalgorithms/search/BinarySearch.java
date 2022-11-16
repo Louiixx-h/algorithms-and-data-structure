@@ -1,7 +1,5 @@
 package br.com.luishenrique.datastructureandalgorithms.search;
 
-import br.com.luishenrique.datastructureandalgorithms.utils.Print;
-
 /**
  * BinarySearch
  */
@@ -11,27 +9,27 @@ public class BinarySearch {
         int down = 0;
         int hight = items.length -1; 
         int result = 0;
-        int middle = (hight - down) / 2;
+        int middle = 0;
 
-        do {
-            if(items[middle] < target) {
-                Print.newLine("Menor!");
-                down = middle;
-                middle = ((hight - down) / 2) + middle;
-            }
+        while (result != target) {
+            
+            middle = (hight + down) / 2;
 
-            if(items[middle] > target) {
-                Print.newLine("Maior!");
-                hight = middle;
-                middle = middle - ((hight - down) / 2);
-            }
-
-            if(items[middle] == target) {
-                Print.newLine(items[middle] + " é o número que vocês estava procurando?");
+            if(target == items[middle]) {
                 result = items[middle];
                 break;
             }
-        } while(items[middle] != target);
+
+            if(items[middle] > target) {
+                hight = middle-1;
+                continue;
+            }
+
+            if(items[middle] < target) {
+                down = middle+1;
+                continue;
+            }
+        }
 
         return result;
     }
