@@ -12,8 +12,8 @@ public class Square {
 
     public int getArea() {
         if (height == 1) return width;
-        Square smallerTriangle = new Square(width, height-1);
-        int area = smallerTriangle.getArea();
+        Square smallerSquare = new Square(width, height-1);
+        int area = smallerSquare.getArea();
         return area + width;
     }
 }
