@@ -11,12 +11,13 @@ public class LinkedList<T> {
 
     public void add(T newValue) {
         Node<T> node = new Node<T>(newValue);
+        
         if (first == null) {
             this.first = node;
-        }
-        else {
+        } else {
             pointer.setNextNode(node);
         }
+         
         pointer = node;
         size++;
     }
@@ -27,7 +28,6 @@ public class LinkedList<T> {
 
         if (index < 0) throw new IndexOutOfBoundsException();
         if (first == null) return false;
-        if (index == i) return true;
 
         while (i <= index) {
             if (i == index) {
@@ -36,10 +36,9 @@ public class LinkedList<T> {
                 return true;
             }
             pointer = pointer.getNextNode();
+            if (pointer == null) throw new IndexOutOfBoundsException();
             i++;
         }
-
-        if (pointer != null) throw new IndexOutOfBoundsException();
         return false;
     }
 

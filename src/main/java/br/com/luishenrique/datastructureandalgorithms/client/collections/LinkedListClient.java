@@ -6,7 +6,9 @@ import br.com.luishenrique.datastructureandalgorithms.utils.Print;
 public class LinkedListClient {
     
     public static void main(String[] args) {
+        
         LinkedList<String> linkedList = new LinkedList<>();
+        
         linkedList.add("Acre");
         linkedList.add("Goiás");
         linkedList.add("Maranhão");
@@ -16,7 +18,7 @@ public class LinkedListClient {
         linkedList.remove(1);
 
         Print.newLine(linkedList);
-        Print.newLine("Tamanho da lista: " + linkedList.getSize());
+
         Print.newLine(linkedList.get(2));
     }
 }
