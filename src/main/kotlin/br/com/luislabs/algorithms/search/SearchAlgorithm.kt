@@ -1,6 +1,6 @@
 package br.com.luislabs.algorithms.search
 
-fun linearSearch(items: List<Int>, target: Int) : Int {
+fun <T> linearSearch(items: List<T>, target: T) : T {
     for (item in items) {
         if (item == target) {
             return target
