@@ -1,38 +1,31 @@
 package br.com.luislabs.algorithms.sort
 
-fun quickSort(array: IntArray, left: Int, right: Int) {
-    val index = partition (array, left, right)
-    if(left < index-1) { // 2) Sorting left half
-        quickSort(array, left, index-1)
-    }
-    if(index < right) { // 3) Sorting right half
-        quickSort(array,index, right)
+fun quickSort(arr: IntArray, left: Int = 0, right: Int = arr.size-1) {
+    if(left < right) {
+        val pivot = partition(arr, left, right)
+        quickSort(arr, left, pivot-1)
+        quickSort(arr, pivot+1, right)
     }
 }
 
-fun partition(array: IntArray, l: Int, r: Int): Int {
-    var left = l
-    var right = r
-    val pivot = array[(left + right)/2] // 4) Pivot Point
-    while (left <= right) {
-        while (array[left] < pivot) left++ // 5) Find the elements on left that should be on right
+private fun partition(arr: IntArray, left: Int, right: Int): Int {
+    val pivot = arr[right]
+    var i = left
 
-        while (array[right] > pivot) right-- // 6) Find the elements on right that should be on left
-
-        // 7) Swap elements, and move left and right indices
-        if (left <= right) {
-            swapArray(array, left,right)
-            left++
-            right--
+    for (j in left until right) {
+        if(arr[j] <= pivot) {
+            swapArray(arr, i, j)
+            i++
         }
     }
-    return left
+    swapArray(arr, i, right)
+    return i
 }
 
-fun swapArray(a: IntArray, b: Int, c: Int) {
-    val temp = a[b]
-    a[b] = a[c]
-    a[c] = temp
+fun swapArray(arr: IntArray, i: Int, j: Int) {
+    val temp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = temp
 }
 
 
