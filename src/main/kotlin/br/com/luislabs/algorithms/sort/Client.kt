@@ -12,6 +12,6 @@ fun main() {
 
     // Quick Sort
     val arr = intArrayOf(5, 2, 9, 1, 5, 6)
-    quickSort(arr, 0, arr.size - 1)
+    quickSort(arr)
     arr.printContent() // [1, 2, 5, 5, 6, 9]
 }
